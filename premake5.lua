@@ -1,8 +1,7 @@
 project "hadron-engine"
   cppdialect "C++17"
-  configurations {"Debug", "Release"}
   pic "On"
-  kind "ConsoleApp"
+  kind "StaticLib"
   language "C++"
   targetdir (out_dir .. "bin/" .. out_struct .. "%{prj.name}")
   objdir (out_dir .. "build/" .. out_struct .. "%{prj.name}")
