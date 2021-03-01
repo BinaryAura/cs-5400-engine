@@ -25,5 +25,6 @@ project "spdlog"
 
 include_dirs["spdlog"] = "deps/spdlog/include"
 
--- Entt is
 include_dirs["entt"] = "deps/entt/single_include/entt"
+
+include_dirs["glm"] = "deps/glm"
