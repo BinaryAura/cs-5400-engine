@@ -19,6 +19,7 @@ public:
   virtual uint32_t get_height() const = 0;
   virtual float get_fps() const = 0;
   virtual void set_fps(const float) = 0;
+  virtual void set_tick_debug(const bool) = 0;
 
   // Todo: set_event_callback
   // Todo: set vsync

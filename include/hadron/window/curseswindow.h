@@ -41,7 +41,13 @@ public:
     this->fps = fps;
   }
 
+  inline void set_tick_debug(const bool tick_debug) override {
+    this->tick_debug = tick_debug;
+  }
+
 protected:
+  bool tick_debug;
+
   static uint32_t n_windows;
   static bool curses_initialized;
 private:

@@ -32,8 +32,8 @@ CursesWindow::CursesWindow(const Window::Properties& props) {
 
   this->window = newwin(props.height, props.width, y, x);
   keypad(this->window, true);
-  box(this->window, 0, 0);
-  wrefresh(this->window);
+  // box(this->window, 0, 0);
+  // wrefresh(this->window);
 }
 
 CursesWindow::~CursesWindow() {
@@ -55,10 +55,13 @@ void CursesWindow::on_update() {
   box(this->window, 0, 0);
   // sync to 60 Hz
   uint64_t now;
-  // do {
-  //   now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-  // } while( this->fps < 1000 / float(now - last_update));
-  getch();
+  if(!this->tick_debug) {
+    do {
+      now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    } while( this->fps < 1000 / float(now - last_update));
+  } else {
+    getch();
+  }
   wrefresh(this->window);
   last_update = now;
 }
