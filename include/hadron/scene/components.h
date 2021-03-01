@@ -82,7 +82,7 @@ struct TileMapComponent {
   TileMapComponent(const uint32_t rows, const uint32_t cols, const uint32_t cell_width = 1, const uint32_t cell_height = 1) : rows(rows), cols(cols), cell_width(cell_width), cell_height(cell_height) {}
 
   uint32_t distance(const TransformComponent& lhs, const TransformComponent& rhs) const {
-    return std::abs(glm::vec3(lhs).x - glm::vec3(rhs).x) + std::abs(glm::vec3(lhs).y - glm::vec3(rhs).y);
+    return std::sqrt(std::pow(glm::vec3(lhs).x - glm::vec3(rhs).x, 2) + std::pow(glm::vec3(lhs).y - glm::vec3(rhs).y, 2));
   }
 
   std::vector<TransformComponent> get_neighbors(TransformComponent& transform) const {
